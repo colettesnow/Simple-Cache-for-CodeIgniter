@@ -56,7 +56,10 @@ class Simple_cache {
 	{
 		$key = sha1($key);
 		// checks if the cached item exists and that it has not expired. 
-		if (file_exists(BASEPATH.'cache/'.$key.'.cache') && (filectime(BASEPATH.'cache/'.$key.'.php')+$this->expire_after) >= time())
+        
+        $file_expires = file_exists(BASEPATH.'cache/'.$key.'.cache') ? filectime(BASEPATH.'cache/'.$key.'.php')+$this->expire_after) : (time() - 10);
+        
+		if ($file_expires >= time())
 		{			
 			return true;
 		} else {
