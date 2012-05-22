@@ -1,6 +1,25 @@
-# Usage
+# Simple Cache for CodeIgniter Readme
+Developed by [Colette Snow](http://colettesnow.com/) and released under the GNU General Public License (see LICENSE).
 
-The code is pretty self-explainatory, so I'll just leave it at that.
+## About
+
+Simple Cache for CodeIgniter is an open source file based fragment caching library released under the GNU General Public License. It was designed to be simple to use and easily adaptable to use alternate backends if this was needed in the future.
+
+It should also be usable in non-CodeIgniter applications.
+
+## Requirements
+
+* A webserver
+* PHP 5.0 or later
+* Write access to the /cache/ directory
+
+## Installation
+
+Simply place Simple_cache.php in your CodeIgniter application's libraries directory.
+
+## Usage
+
+The following code should be self-explanatory.
 
 ## Code with CodeIgniter
 
@@ -63,3 +82,7 @@ if (!$cache->is_cached('key'))
 echo $data['print'];
 ?>
 ```
+
+## Recommendations
+
+* It is recommended your CodeIgniter application, specifically the cache directory be located outside the web root (www/htdocs/public_html).
