@@ -21,7 +21,7 @@ Simply place Simple_cache.php in your CodeIgniter application's libraries direct
 
 The following code should be self-explanatory.
 
-## Code with CodeIgniter
+### Code with CodeIgniter
 
 ```php
 <?php
@@ -54,7 +54,7 @@ class Test extends Controller {
 ?>
 ```
 
-## Code for non-CodeIgniter users
+### Code for non-CodeIgniter users
 
 ```php
 <?php
