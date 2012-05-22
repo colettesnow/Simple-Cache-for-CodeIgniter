@@ -1,9 +1,11 @@
-== Usage ==
+# Usage
 
 The code is pretty self-explainatory, so I'll just leave it at that.
 
-== Code with CodeIgniter ==
+## Code with CodeIgniter
 
+```php
+<?php
 class Test extends Controller {
 
 	function main()
@@ -30,9 +32,13 @@ class Test extends Controller {
 	}
 	
 }
+?>
+```
 
-== Code for non-CodeIgniter users ==
+## Code for non-CodeIgniter users
 
+```php
+<?php
 require_once 'Simple_cache.php';
 
 // your cache would be located in /path/to/directory/cache in this case
@@ -55,3 +61,5 @@ if (!$cache->is_cached('key'))
 
 // outputs Hello World
 echo $data['print'];
+?>
+```
