@@ -22,7 +22,7 @@
 */
 
 class Simple_cache {
- 
+
 	/**
 	 * @var int containing the number of seconds that a cached item will be considered current
 	 */
@@ -30,43 +30,43 @@ class Simple_cache {
 
 	/**
 	 * Caches an item which can be retrieved by key
-	 *	
+	 *
 	 * @param string $key identitifer to retrieve the data later
 	 * @param mixed $value to be cached
 	 */
 	function cache_item($key, $value)
 	{
-		// hashing the key in order to ensure that the item is stored with an appropriate file name in the file system.	
+		// hashing the key in order to ensure that the item is stored with an appropriate file name in the file system.
 		$key = sha1($key);
-		
+
 		// serialises the contents so that they can be stored in plain text
 		$value = serialize($value);
-		
-		file_put_contents(BASEPATH.'cache/'.$key.'.cache', $value);		
-	
+
+		file_put_contents(BASEPATH.'cache/'.$key.'.cache', $value);
+
 	}
-	
+
 	/**
 	 * Check's whether an item is cached or not
-	 * 
+	 *
 	 * @param string $key containing the identifier of the cached item
 	 * @return bool whether the item is currently cached or not
-	 */ 
+	 */
 	function is_cached($key)
 	{
 		$key = sha1($key);
-		// checks if the cached item exists and that it has not expired. 
-        
-        $file_expires = file_exists(BASEPATH.'cache/'.$key.'.cache') ? filectime(BASEPATH.'cache/'.$key.'.php')+$this->expire_after) : (time() - 10);
-        
+		// checks if the cached item exists and that it has not expired.
+
+        $file_expires = file_exists(BASEPATH.'cache/'.$key.'.cache') ? filectime(BASEPATH.'cache/'.$key.'.cache')+$this->expire_after) : (time() - 10);
+
 		if ($file_expires >= time())
-		{			
+		{
 			return true;
 		} else {
-			return false;			
-		}		
+			return false;
+		}
 	}
-	
+
 	/**
 	 * Retrieve's the cached item
 	 *
@@ -78,13 +78,13 @@ class Simple_cache {
 		$key = sha1($key);
 		$item = file_get_contents(BASEPATH.'cache/'.$key.'.cache');
 		$items = unserialize($item);
-		
+
 		return $items;
 	}
-	
+
 	/**
 	 * Delete's the cached item
-	 * 
+	 *
 	 * @param string $key containing the identifier of the item to delete.
 	*/
 	function delete_item($key)
